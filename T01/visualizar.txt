@@ -1,0 +1,88 @@
+def pelea_salvaje(self):
+        #pokemon salvaje random
+        salvaje=self.programon_factible_route()
+        print('Encontraste un '+ salvaje.name + ' ,nivel ' +str(salvaje.level)+ ', a batallar! \n')
+        #registrar en progradex
+        self.add_progradex(salvaje)
+        #creamos sus stats ,hp y mov
+        salvaje.ready_to_fight()
+        #guardamos el hp inicial que tenia el pokemon, para el calculo de la probabilidad de atraparlo 
+        salvaje.initial_hp=int(salvaje.hp)
+        #preparamos nuestro team en una lista de programones ocn sus stats creados
+        self.prepare_team()
+        #parte el prgramon mas rapido
+        self.programon_in_battle=self.team_battle[0]
+        self.programon_in_battle.peleo=True
+        
+        self.turno=True if self.programon_in_battle.speed>salvaje.speed else False
+        #pelea se efectua mientras le quede hp a tu equipo y al salvaje
+
+        while self.list_alive!= [] and salvaje.hp>0 and self.pp_disponible():
+            if self.turno==True:
+                print('Turno de '+self.name + '\n')
+                print('Tu programon peleando es '+self.programon_in_battle.name+' Lvl:' +str(self.programon_in_battle.level)+ ' con HP: '+str(self.programon_in_battle.hp))
+                #acciones del turno del jugador
+                opcion=input('Que desea hacer en batalla:\n (0)Atacar \n (1)Cambio de programon \n (2)Intentar atrapar con prograbola \n (3)Abandonar pelea \n')
+                #al final del turno cambiar a turno salvaje 
+                if opcion=='0':
+                    self.do_damage(self.programon_in_battle,salvaje)
+
+                elif opcion=='1':
+                    self.change_in_battle()
+                    if self.list_alive()==[]:
+
+                        continue
+                    self.programon_in_battle.peleo=True
+
+                elif opcion=='2':
+                    succes=self.catch_programon(salvaje)
+                    if succes:
+                        break
+
+                elif opcion=='3':
+                    print('abandonaste la pelea \n')
+                    break
+                    
+                self.turno=False
+            else:
+                print('Turno de '+salvaje.name + '\n')
+                self.recieve_damage(salvaje,self.programon_in_battle)
+                if self.programon_in_battle.hp<0:
+                    self.programon_in_battle.hp=0
+                    print( self.programon_in_battle.name + ' ha quedado sin HP. \n')
+                    #Agregar metodo de cambiar de pokemon
+                    #ese metodo debe tener una condicion de si todos los del equipo tienen hp=0
+                    self.change_in_battle()
+                    self.programon_in_battle.peleo=True
+                #cambiamos al turno de el jugador
+                self.turno=True
+        else:
+            ##else de while que deja un registro
+            dict_battle={'tipo':'salvaje'}
+            dict_battle['equipo']=[programon.programon_dict_regis() for programon in self.team_battle]
+            dict_battle['programon']=[salvaje.programon_dict()]
+            if self.list_alive == [] or not(self.pp_disponible()):
+                print('Fuiste derrotado por '+salvaje.name+'\n')
+                dict_battle['victoria']=False
+                self.money-=100
+                dict_battle['dinero']=-100
+                
+            elif salvaje.hp<=0:
+                print('Derrotaste a ' + salvaje.name)
+                dict_battle['victoria']=True
+                self.money+=100
+                dict_battle['dinero']=100
+                print('Ganaste $100')
+                for programon in self.team_battle:
+                    if programon.peleo:
+                        programon.level+=1
+                        print(programon.name +' subio a nivel '+str(programon.level) +'\n')
+                        # Metodo de evolucion de programon
+
+            self.battles.append(dict_battle)
+            #reser del registro
+            for programon in self.team_battle:
+                programon.peleo=False
+
+
+

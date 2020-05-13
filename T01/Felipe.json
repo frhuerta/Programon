@@ -1,0 +1,74 @@
+{
+   "id_jugador": {
+      "name": "Felipe",
+      "password": "uvfla831",
+      "medals": [],
+      "money": 1000,
+      "team": [
+         4
+      ],
+      "battles": [
+         {
+            "tipo": "salvaje",
+            "equipo": [
+               {
+                  "id": 4,
+                  "iv": 4,
+                  "ev": 53578,
+                  "level": 5,
+                  "peleo": true
+               }
+            ],
+            "programon": [
+               {
+                  "id": 45,
+                  "iv": 0,
+                  "ev": 11974,
+                  "level": 8
+               }
+            ],
+            "victoria": true,
+            "dinero": 100
+         },
+         {
+            "tipo": "salvaje",
+            "equipo": [
+               {
+                  "id": 4,
+                  "iv": 4,
+                  "ev": 53578,
+                  "level": 6,
+                  "peleo": true
+               }
+            ],
+            "programon": [
+               {
+                  "id": 128,
+                  "iv": 6,
+                  "ev": 29939,
+                  "level": 10
+               }
+            ],
+            "victoria": false,
+            "dinero": -100
+         }
+      ],
+      "programon": [
+         {
+            "id": 4,
+            "iv": 4,
+            "ev": 53578,
+            "level": 6
+         }
+      ],
+      "qty_prograbolas": 10,
+      "progradex": [
+         4,
+         146,
+         45,
+         43,
+         128
+      ],
+      "actual_location": 5
+   }
+}

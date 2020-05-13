@@ -1,0 +1,80 @@
+{
+   "id_jugador": {
+      "name": "joaquin",
+      "password": "uvfla831",
+      "medals": [],
+      "money": 800,
+      "team": [
+         132,
+         4
+      ],
+      "battles": [
+         {
+            "tipo": "salvaje",
+            "equipo": [
+               {
+                  "id": 4,
+                  "iv": 11,
+                  "ev": 8687,
+                  "level": 5,
+                  "peleo": true
+               }
+            ],
+            "programon": [
+               {
+                  "id": 125,
+                  "iv": 11,
+                  "ev": 8687,
+                  "level": 5
+               }
+            ],
+            "victoria": false,
+            "dinero": -100
+         },
+         {
+            "tipo": "salvaje",
+            "equipo": [
+               {
+                  "id": 4,
+                  "iv": 11,
+                  "ev": 8687,
+                  "level": 5,
+                  "peleo": true
+               }
+            ],
+            "programon": [
+               {
+                  "id": 104,
+                  "iv": 11,
+                  "ev": 8687,
+                  "level": 7
+               }
+            ],
+            "victoria": false,
+            "dinero": -100
+         }
+      ],
+      "programon": [
+         {
+            "id": 4,
+            "iv": 11,
+            "ev": 8687,
+            "level": 5
+         },
+         {
+            "id": 132,
+            "iv": 11,
+            "ev": 8687,
+            "level": 3
+         }
+      ],
+      "qty_prograbolas": 9,
+      "progradex": [
+         4,
+         125,
+         104,
+         132
+      ],
+      "actual_location": 4
+   }
+}
